@@ -1,0 +1,278 @@
+{% comment %}
+  Indophilia — Contact Float Widget
+  snippet: contact-float.liquid
+
+  Renders a floating contact button (bottom-right) with three channels:
+    WhatsApp, Messenger, Email.
+
+  Add to theme via:
+    {% render 'contact-float' %}
+
+  Contact details (confirmed):
+    WhatsApp:  +1 (347) 937-9613
+    Messenger: m.me/indophilia.in
+    Email:     customerchampion@indophilia.store
+{% endcomment %}
+
+<style>
+  /* --- Wrapper --- */
+  #cf-widget {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 990;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    font-family: inherit;
+  }
+
+  /* --- Popup panel --- */
+  #cf-popup {
+    flex-direction: column;
+    gap: 10px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 18px 16px;
+    box-shadow: 0 4px 24px rgba(61, 26, 140, 0.25);
+    min-width: 220px;
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  #cf-popup.cf-open {
+    display: flex;
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* --- Popup header --- */
+  .cf-header {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #3D1A8C;
+    opacity: 0.55;
+    margin-bottom: 2px;
+  }
+
+  /* --- Each channel button --- */
+  .cf-channel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    transition: filter 0.15s ease, transform 0.15s ease;
+  }
+
+  .cf-channel:hover {
+    filter: brightness(1.1);
+    transform: translateX(-2px);
+  }
+
+  .cf-channel svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .cf-whatsapp  { background: #25D366; }
+  .cf-messenger { background: linear-gradient(135deg, #0084FF, #A033FF); }
+  .cf-email     { background: #3D1A8C; }
+
+  /* --- FAB trigger --- */
+  #cf-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #3D1A8C;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 24px rgba(61, 26, 140, 0.25);
+    transition: background 0.2s ease, transform 0.2s ease;
+    position: relative;
+    text-decoration: none;
+  }
+
+  #cf-trigger:hover {
+    background: #52279e;
+    transform: scale(1.07);
+  }
+
+  /* Gold ring on hover */
+  #cf-trigger::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 2px solid #F5C400;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  #cf-trigger:hover::after,
+  #cf-trigger.cf-active::after {
+    opacity: 1;
+  }
+
+  #cf-trigger svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* --- Mobile --- */
+  @media (max-width: 480px) {
+    #cf-widget {
+      bottom: 18px;
+      right: 16px;
+    }
+
+    #cf-popup {
+      min-width: 190px;
+    }
+  }
+</style>
+
+<div id="cf-widget" role="complementary" aria-label="Contact us">
+
+  <!-- Popup panel — HIDDEN by default via inline style -->
+  <div
+    id="cf-popup"
+    role="dialog"
+    aria-label="Choose how to contact us"
+    style="display: none; pointer-events: none;"
+  >
+    <span class="cf-header">Talk to us</span>
+
+    <a
+      class="cf-channel cf-whatsapp"
+      href="https://wa.me/13479379613"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.852L.057 23.886a.75.75 0 00.921.902l6.255-1.638A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.5-5.241-1.376l-.375-.215-3.888 1.018 1.034-3.772-.232-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+      </svg>
+      WhatsApp
+    </a>
+
+    <a
+      class="cf-channel cf-messenger"
+      href="https://m.me/indophilia.in"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Message on Facebook Messenger"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.744 6.615 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.975 12-11.111S18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26L10.732 8.4l3.131 3.26L19.752 8.4l-6.561 6.563z"/>
+      </svg>
+      Messenger
+    </a>
+
+    <a
+      class="cf-channel cf-email"
+      href="mailto:customerchampion@indophilia.store"
+      aria-label="Send us an email"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <polyline points="2,4 12,13 22,4"/>
+      </svg>
+      Email Us
+    </a>
+  </div>
+
+  <!--
+    FAB trigger — uses <a> with WhatsApp fallback.
+    If JS fails, clicking still opens WhatsApp.
+  -->
+  <a
+    id="cf-trigger"
+    href="https://wa.me/13479379613"
+    target="_blank"
+    rel="noopener noreferrer"
+    role="button"
+    aria-label="Open contact options"
+    aria-expanded="false"
+    aria-controls="cf-popup"
+  >
+    <svg id="cf-icon-chat" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+    </svg>
+    <svg id="cf-icon-close" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="display: none; position: absolute;">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </a>
+
+</div>
+
+<script>
+  (function () {
+    'use strict';
+
+    var trigger   = document.getElementById('cf-trigger');
+    var popup     = document.getElementById('cf-popup');
+    var iconChat  = document.getElementById('cf-icon-chat');
+    var iconClose = document.getElementById('cf-icon-close');
+    var widget    = document.getElementById('cf-widget');
+
+    if (!trigger || !popup) return;
+
+    var isOpen = false;
+
+    function open() {
+      isOpen = true;
+      popup.style.display = 'flex';
+      popup.style.pointerEvents = 'auto';
+      popup.classList.add('cf-open');
+      trigger.classList.add('cf-active');
+      trigger.setAttribute('aria-expanded', 'true');
+      iconChat.style.display = 'none';
+      iconClose.style.display = '';
+    }
+
+    function close() {
+      isOpen = false;
+      popup.classList.remove('cf-open');
+      trigger.classList.remove('cf-active');
+      trigger.setAttribute('aria-expanded', 'false');
+      iconChat.style.display = '';
+      iconClose.style.display = 'none';
+      setTimeout(function () {
+        if (!isOpen) {
+          popup.style.display = 'none';
+          popup.style.pointerEvents = 'none';
+        }
+      }, 220);
+    }
+
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      isOpen ? close() : open();
+    });
+
+    document.addEventListener('click', function (e) {
+      if (isOpen && !widget.contains(e.target)) close();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isOpen) close();
+    });
+  })();
+</script>
