@@ -1,0 +1,53 @@
+{% assign necklines = product.metafields.custom.neckline.value %}
+{% assign sleevetypes = product.metafields.custom.sleevetype.value %}
+{% assign pantlengths = product.metafields.custom.pantlength.value %}
+{% assign bottomlengths = product.metafields.custom.bottomlength.value %}
+
+
+{% if necklines != blank %}
+  <div class="prod_swatch_main customize_button">
+    {% if settings.swatch_1_heading != blank %}
+      <h5 class="swatch_heading">Change {{ settings.swatch_1_heading }}</h5>
+    {% endif %}
+    <div class="pg_swatch_img_text" data-name="neckline">
+      <img src="https://cdn.shopify.com/s/files/1/0738/9973/7371/files/As_Shown.jpg?v=1712843242" height="50" width="50">
+      <span class="pg_swatch_text">As shown</span>
+    </div>
+  </div>
+{% endif %}
+
+{% if sleevetypes != blank %}
+  <div class="prod_swatch_main customize_button">
+    {% if settings.swatch_2_heading != blank %}
+      <h5 class="swatch_heading">Change {{ settings.swatch_2_heading }}</h5>
+    {% endif %}
+    <div class="pg_swatch_img_text" data-name="sleevetype">
+      <img src="https://cdn.shopify.com/s/files/1/0738/9973/7371/files/As_Shown.jpg?v=1712843242" height="50" width="50">
+      <span class="pg_swatch_text">As shown</span>
+    </div>
+  </div>
+{% endif %}
+
+{% if pantlengths != blank %}
+  <div class="prod_swatch_main customize_button">
+    {% if settings.swatch_3_heading != blank %}
+      <h5 class="swatch_heading">Change {{ settings.swatch_3_heading }}</h5>
+    {% endif %}
+    <div class="pg_swatch_img_text pantlength" data-name="pantlength">
+      <img src="https://cdn.shopify.com/s/files/1/0738/9973/7371/files/As_Shown.jpg?v=1712843242" height="50" width="50">
+      <span class="pg_swatch_text">As shown</span>
+    </div>
+  </div>
+{% endif %}
+
+{% if bottomlengths != blank %}
+  <div class="prod_swatch_main customize_button">
+    {% if settings.swatch_4_heading != blank %}
+      <h5 class="swatch_heading">Change {{ settings.swatch_4_heading }}</h5>
+    {% endif %}
+    <div class="pg_swatch_img_text" data-name="bottomlength">
+      <img src="https://cdn.shopify.com/s/files/1/0738/9973/7371/files/As_Shown.jpg?v=1712843242" height="50" width="50">
+      <span class="pg_swatch_text">As shown</span>
+    </div>
+  </div>
+{% endif %}

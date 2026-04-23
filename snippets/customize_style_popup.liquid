@@ -1,0 +1,313 @@
+<style>
+  .styled_by_u{
+    width: {{ settings.style_image_size | append:'%'}};
+  }
+</style>
+
+
+{% assign necklines = product.metafields.custom.neckline.value %}
+{% assign sleevetypes = product.metafields.custom.sleevetype.value %}
+{% assign pantlengths = product.metafields.custom.pantlength.value %}
+{% assign bottomlengths = product.metafields.custom.bottomlength.value %}
+{% assign base_image = product.metafields.custom.base_image.value %}
+
+<div class="ms_popup_wr">
+  <div class="ms_popup_overlay" title="Close"></div>
+  <div class="ms_popup_content">
+    <span title="Close" class="ms_close_btn">
+      {% render 'cross_icon' %}
+    </span>
+    
+    <div class="product_popup_wr">
+      <div class="product_popup_main">
+        <div class="product_image_main">
+          <div class="image_group_main">
+            {% if base_image != blank %}
+              <img class="main_image" src="{{ base_image | img_url:'1600x' }}" height="auto" width="auto">
+            {% endif %}
+            <div class="top_image_main">
+              <img class="top_image abs_imgs image_bg" src="" height="auto" width="auto">
+              <img class="top_image abs_imgs image_fg" src="" height="auto" width="auto">
+            </div>
+            <div class="middle_image_main">
+              <img class="middle_image abs_imgs image_bg" src="" height="auto" width="auto">
+              <img class="middle_image abs_imgs image_fg" src="" height="auto" width="auto">
+            </div>
+            <div class="bottom_image_main">
+              <img class="bottom_image abs_imgs image_bg" src="" height="auto" width="auto">
+              <img class="bottom_image abs_imgs image_fg" src="" height="auto" width="auto">
+            </div>          
+          </div>
+        </div>
+        <div class="product_content_main">
+          {% if settings.popup_heading != blank %}
+            <div class="popup_heading">
+              {{ settings.popup_heading }}
+            </div>
+          {% endif %}
+          <div class="mob_tab_heading">
+            {% if necklines != blank %}
+              {% if settings.swatch_1_heading != blank %}
+                <a href="#tab1"><h5 class="swatch_heading">{{ settings.swatch_1_heading }}</h5></a>
+              {% endif %}
+            {% endif %}
+            {% if sleevetypes != blank %}
+              {% if settings.swatch_2_heading != blank %}
+                <a href="#tab2"><h5 class="swatch_heading">{{ settings.swatch_2_heading }}</h5></a>
+              {% endif %}
+            {% endif %}
+            {% if pantlengths != blank %}
+              {% if settings.swatch_3_heading != blank %}
+                <a href="#tab3"><h5 class="swatch_heading">{{ settings.swatch_3_heading }}</h5></a>
+              {% endif %}
+            {% endif %}
+            {% if bottomlengths != blank %}
+              {% if settings.swatch_4_heading != blank %}
+                <a href="#tab4"><h5 class="swatch_heading">{{ settings.swatch_4_heading }}</h5></a>
+              {% endif %}
+            {% endif %}
+          </div>
+          <div class="swatches_main">
+            {% if necklines != blank %}
+              <div class="single_swatch_main" id="tab1">
+                {% if settings.swatch_1_heading != blank %}
+                  <h5 class="swatch_heading">{{ settings.swatch_1_heading }}</h5>
+                {% endif %}
+                <div class="slider_with_default">
+                  <div class="swatch_default">
+                    {% if settings.above_default_text != blank %}
+                      <span class="slider_head">
+                        {{ settings.above_default_text }}
+                      </span>
+                    {% endif %}
+                    {% for neckline in necklines limit: 1 %}
+                      {% assign image_name = neckline | split: '/' %}
+                      {% assign swatch_name = image_name[1] | split:'-' %}
+                      {% assign final_swatch_name = swatch_name[2] | remove:'.png' | downcase %}
+                      <div class="swatch_single only_swatch">
+                        <label class="swatch_item" for="neckline-{{ forloop.index0 }}">
+                          <input type="radio" name="neckline" id="neckline-{{ forloop.index0 }}" class="swatch_input d-none" data-swatch-name="{{ final_swatch_name }}" data-swatch-name-display="{{ final_swatch_name | replace:'_',' ' }}" data-image-src="{{ neckline | img_url:'master' }}"{% if forloop.first %} checked{% endif %}>
+                          <img class="swatch_img" src="{{ final_swatch_name | append:'.jpg' | asset_url }}" height="50" width="50">
+                          <p class="swatch_text">{{ final_swatch_name | replace:'_',' ' }}</p>
+                        </label>
+                      </div>
+                    {% endfor %}
+                  </div>
+                  <div class="slider_wr">
+                    <div class="slider_main">
+                      <div class="swipe1 swiper">
+                        {% if settings.above_slider_text != blank %}
+                          <span class="slider_head">
+                            {{ settings.above_slider_text }} {{ settings.swatch_1_heading }}
+                          </span>
+                        {% endif %}
+                        <div class="swiper-wrapper swatch_slider_main">
+                          {% for neckline in necklines %}
+                            {% assign image_name = neckline | split: '/' %}
+                            {% assign swatch_name = image_name[1] | split:'-' %}
+                            {% assign final_swatch_name = swatch_name[2] | remove:'.png' | downcase %}
+                            <div class="swiper-slide swatch_single">
+                              <label class="swatch_item" for="neckline-{{ forloop.index }}">
+                                <img style="display: none;" src="{{ neckline | img_url:'master' }}" height="auto" width="auto">   
+                                <input type="radio" name="neckline" id="neckline-{{ forloop.index }}" class="swatch_input d-none" data-swatch-name="{{ final_swatch_name }}" data-swatch-name-display="{{ final_swatch_name | replace:'_',' ' }}" data-image-src="{{ neckline | img_url:'master' }}"{% if forloop.first %} checked{% endif %}>
+                                <img class="swatch_img" src="{{ final_swatch_name | append:'.jpg' | asset_url }}" height="50" width="50">
+                                <p class="swatch_text">{{ final_swatch_name | replace:'_',' ' }}</p>
+                              </label>
+                            </div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                      <div class="swiper-arrow swiper-button-prev swiper-button-prev1"><span></span></div>
+                      <div class="swiper-arrow swiper-button-next swiper-button-next1"><span></span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+            {% if sleevetypes != blank %}
+              <div class="single_swatch_main" id="tab2">
+                {% if settings.swatch_2_heading != blank %}
+                  <h5 class="swatch_heading">{{ settings.swatch_2_heading }}</h5>
+                {% endif %}
+                <div class="slider_with_default">
+                  <div class="swatch_default">
+                    {% if settings.above_default_text != blank %}
+                      <span class="slider_head">
+                        {{ settings.above_default_text }}
+                      </span>
+                    {% endif %}
+                    {% for sleevetype in sleevetypes limit: 1 %}
+                      {% assign image_name = sleevetype | split: '/' %}
+                      {% assign swatch_name = image_name[1] | split:'-' %}
+                      {% assign final_swatch_name = swatch_name[2] | remove:'.png' | downcase %}
+                      <div class="swatch_single only_swatch">
+                        <label class="swatch_item" for="sleevetype-{{ forloop.index0 }}">
+                          <input type="radio" name="sleevetype" id="sleevetype-{{ forloop.index0 }}" class="swatch_input d-none" data-swatch-name="{{ final_swatch_name }}" data-swatch-name-display="{{ final_swatch_name | replace:'_',' ' }}" data-image-src="{{ sleevetype | img_url:'master' }}"{% if forloop.first %} checked{% endif %}>
+                          <img class="swatch_img" src="{{ final_swatch_name | append:'.jpg' | asset_url }}" height="50" width="50">
+                          <p class="swatch_text">{{ final_swatch_name | replace:'_',' ' }}</p>
+                        </label>
+                      </div>
+                    {% endfor %}
+                  </div>
+                  <div class="slider_wr">
+                    <div class="slider_main">
+                      <div class="swipe2 swiper">
+                        {% if settings.above_slider_text != blank %}
+                          <span class="slider_head">
+                            {{ settings.above_slider_text }} {{ settings.swatch_2_heading }}
+                          </span>
+                        {% endif %}
+                        <div class="swiper-wrapper swatch_slider_main">
+                          {% for sleevetype in sleevetypes %}
+                            {% assign image_name = sleevetype | split: '/' %}
+                            {% assign swatch_name = image_name[1] | split:'-' %}
+                            {% assign final_swatch_name = swatch_name[2] | remove:'.png' | downcase %}
+                            <div class="swiper-slide swatch_single">
+                              <label class="swatch_item" for="sleevetype-{{ forloop.index }}">
+                                <img style="display: none;" src="{{ sleevetype | img_url:'master' }}" height="auto" width="auto">   
+                                <input type="radio" name="sleevetype" id="sleevetype-{{ forloop.index }}" class="swatch_input d-none" data-swatch-name="{{ final_swatch_name }}" data-swatch-name-display="{{ final_swatch_name | replace:'_',' ' }}" data-image-src="{{ sleevetype | img_url:'master' }}"{% if forloop.first %} checked{% endif %}>
+                                <img class="swatch_img" src="{{ final_swatch_name | append:'.jpg' | asset_url }}" height="50" width="50">
+                                <p class="swatch_text">{{ final_swatch_name | replace:'_',' ' }}</p>
+                              </label>
+                            </div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                      <div class="swiper-arrow swiper-button-prev swiper-button-prev2"><span></span></div>
+                      <div class="swiper-arrow swiper-button-next swiper-button-next2"><span></span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+            {% if pantlengths != blank %}
+              <div class="single_swatch_main" id="tab3">
+                {% if settings.swatch_3_heading != blank %}
+                  <h5 class="swatch_heading">{{ settings.swatch_3_heading }}</h5>
+                {% endif %}
+                <div class="slider_with_default">
+                  <div class="swatch_default">
+                    {% if settings.above_default_text != blank %}
+                      <span class="slider_head">
+                        {{ settings.above_default_text }}
+                      </span>
+                    {% endif %}
+                    {% for pantlength in pantlengths limit: 1 %}
+                      {% assign image_name = pantlength | split: '/' %}
+                      {% assign swatch_name = image_name[1] | split:'-' %}
+                      {% assign final_swatch_name = swatch_name[2] | remove:'.png' | downcase %}
+                      <div class="swatch_single only_swatch">
+                        <label class="swatch_item" for="pantlength-{{ forloop.index0 }}">
+                          <input type="radio" name="pantlength" id="pantlength-{{ forloop.index0 }}" class="swatch_input d-none" data-swatch-name="{{ final_swatch_name }}" data-swatch-name-display="{{ final_swatch_name | replace:'_',' ' }}" data-image-src="{{ pantlength | img_url:'master' }}"{% if forloop.first %} checked{% endif %}>
+                          <img class="swatch_img" src="{{ final_swatch_name | append:'.jpg' | asset_url }}" height="50" width="50">
+                          <p class="swatch_text">{{ final_swatch_name | replace:'_',' ' }}</p>
+                        </label>
+                      </div>
+                    {% endfor %}
+                  </div>
+                  <div class="slider_wr">
+                    <div class="slider_main">
+                      <div class="swipe3 swiper">
+                        {% if settings.above_slider_text != blank %}
+                          <span class="slider_head">
+                            {{ settings.above_slider_text }} {{ settings.swatch_3_heading }}
+                          </span>
+                        {% endif %}
+                        <div class="swiper-wrapper swatch_slider_main">
+                          {% for pantlength in pantlengths %}
+                            {% assign image_name = pantlength | split: '/' %}
+                            {% assign swatch_name = image_name[1] | split:'-' %}
+                            {% assign final_swatch_name = swatch_name[2] | remove:'.png' | downcase %}
+                            <div class="swiper-slide swatch_single">
+                              <label class="swatch_item" for="pantlength-{{ forloop.index }}">
+                                <img style="display: none;" src="{{ pantlength | img_url:'master' }}" height="auto" width="auto">   
+                                <input type="radio" name="pantlength" id="pantlength-{{ forloop.index }}" class="swatch_input d-none" data-swatch-name="{{ final_swatch_name }}" data-swatch-name-display="{{ final_swatch_name | replace:'_',' ' }}" data-image-src="{{ pantlength | img_url:'master' }}"{% if forloop.first %} checked{% endif %}>
+                                <img class="swatch_img" src="{{ final_swatch_name | append:'.jpg' | asset_url }}" height="50" width="50">
+                                <p class="swatch_text">{{ final_swatch_name | replace:'_',' ' }}</p>
+                              </label>
+                            </div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                      <div class="swiper-arrow swiper-button-prev swiper-button-prev3"><span></span></div>
+                      <div class="swiper-arrow swiper-button-next swiper-button-next3"><span></span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+            {% if bottomlengths != blank %}
+              <div class="single_swatch_main" id="tab4">
+                {% if settings.swatch_4_heading != blank %}
+                  <h5 class="swatch_heading">{{ settings.swatch_4_heading }}</h5>
+                {% endif %}
+                <div class="slider_with_default">
+                  <div class="swatch_default">
+                    {% if settings.above_default_text != blank %}
+                      <span class="slider_head">
+                        {{ settings.above_default_text }}
+                      </span>
+                    {% endif %}
+                    {% for bottomlength in bottomlengths limit: 1 %}
+                      {% assign image_name = bottomlength | split: '/' %}
+                      {% assign swatch_name = image_name[1] | split:'-' %}
+                      {% assign final_swatch_name = swatch_name[2] | remove:'.png' | downcase %}
+                      <div class="swatch_single only_swatch">
+                        <label class="swatch_item" for="bottomlength-{{ forloop.index0 }}">
+                          <input type="radio" name="bottomlength" id="bottomlength-{{ forloop.index0 }}" class="swatch_input d-none" data-swatch-name="{{ final_swatch_name }}" data-swatch-name-display="{{ final_swatch_name | replace:'_',' ' }}" data-image-src="{{ bottomlength | img_url:'master' }}"{% if forloop.first %} checked{% endif %}>
+                          <img class="swatch_img" src="{{ final_swatch_name | append:'.jpg' | asset_url }}" height="50" width="50">
+                          <p class="swatch_text">{{ final_swatch_name | replace:'_',' ' }}</p>
+                        </label>
+                      </div>
+                    {% endfor %}
+                  </div>
+                  <div class="slider_wr">
+                    <div class="slider_main">
+                      <div class="swipe4 swiper">
+                        {% if settings.above_slider_text != blank %}
+                          <span class="slider_head">
+                            {{ settings.above_slider_text }} {{ settings.swatch_4_heading }}
+                          </span>
+                        {% endif %}
+                        <div class="swiper-wrapper swatch_slider_main">
+                          {% for bottomlength in bottomlengths %}
+                            {% assign image_name = bottomlength | split: '/' %}
+                            {% assign swatch_name = image_name[1] | split:'-' %}
+                            {% assign final_swatch_name = swatch_name[2] | remove:'.png' | downcase %}
+                            <div class="swiper-slide swatch_single">
+                              <label class="swatch_item" for="bottomlength-{{ forloop.index }}">
+                                <img style="display: none;" src="{{ bottomlength | img_url:'master' }}" height="auto" width="auto">   
+                                <input type="radio" name="bottomlength" id="bottomlength-{{ forloop.index }}" class="swatch_input d-none" data-swatch-name="{{ final_swatch_name }}" data-swatch-name-display="{{ final_swatch_name | replace:'_',' ' }}" data-image-src="{{ bottomlength | img_url:'master' }}"{% if forloop.first %} checked{% endif %}>
+                                <img class="swatch_img" src="{{ final_swatch_name | append:'.jpg' | asset_url }}" height="50" width="50">
+                                <p class="swatch_text">{{ final_swatch_name | replace:'_',' ' }}</p>
+                              </label>
+                            </div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                      <div class="swiper-arrow swiper-button-prev swiper-button-prev4"><span></span></div>
+                      <div class="swiper-arrow swiper-button-next swiper-button-next4"><span></span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup_bottom">
+      <div class="selcted_style">
+        <span class="style_head">{{ settings.selected_style_text }}</span>
+        <span class="style_main">
+          <span>V Neck</span>,&nbsp
+          <span>long length</span>,&nbsp
+          <span>mini</span>
+        </span>
+      </div>
+      <div class="button_submit">
+        <button type="button" class="submit_button btn ms_close_btn">{{ settings.selected_button_text }}</button>
+      </div>
+    </div>
+  </div>
+</div>

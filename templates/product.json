@@ -1,0 +1,462 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "judgeme_preview_badge_product_page_4c320439": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "custom_DXEcp6": {
+          "type": "custom",
+          "settings": {
+            "code": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>Collapsible Promo Code Block</title>\n<style>\n    .collapsible {\n        cursor: pointer;\n        padding: 10px 15px; /* Reduced padding */\n        width: 100%;\n        background-color: #f0f0f0; /* Light grey background */\n        border: none;\n        text-align: center;\n        outline: none;\n        border-radius: 5px; /* Rounded corners */\n        box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */\n        font-family: inherit; /* Inherits font from the body or surrounding text */\n        color: inherit; /* Inherits text color from the body or surrounding text */\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        font-size: 16px; /* Adjusted font size */\n    }\n\n    .collapsible.active, .collapsible:hover {\n        background-color: #e0e0e0; /* Slightly darker grey on hover/active */\n    }\n\n    .plus {\n        margin-left: auto;\n        margin-right: 10px; /* Reduced margin-right */\n        font-size: 1.5em; /* Adjusted size to fit on mobile screens */\n    }\n\n    .content {\n        padding: 10px 15px; /* Adjusted padding */\n        display: none;\n        overflow: hidden;\n        background-color: #f9f9f9;\n        transition: max-height 0.2s ease-out;\n        width: 100%;\n        box-sizing: border-box;\n        font-size: inherit; /* Ensures the font size matches the surrounding text */\n    }\n\n    /* Media Query for Mobile Devices */\n    @media (max-width: 600px) {\n        .collapsible {\n            padding: 8px 10px; /* Further reduce padding for smaller screens */\n            font-size: 14px; /* Smaller font size to fit content in one line */\n        }\n        .plus {\n            margin-right: 5px; /* Smaller margin for plus icon */\n        }\n    }\n</style>\n</head>\n<body>\n\n<div class=\"collapsible\">\n    🎉 Get this at 20% off <span class=\"plus\">+</span>\n</div>\n<div class=\"content\">\n    <p>Use INDO20 at checkout to get 20% off your purchase above $250 along with free shipping, and INDO15 to get 15% off your purchase above $200 with free shipping. Valid for all items!</p>\n</div>\n\n<script>\n    var coll = document.querySelector(\".collapsible\");\n    var content = document.querySelector(\".content\");\n\n    coll.addEventListener(\"click\", function() {\n        this.classList.toggle(\"active\");\n        var plus = this.querySelector(\".plus\");\n        if (content.style.display === \"block\") {\n            content.style.display = \"none\";\n            plus.innerHTML = '+';\n        } else {\n            content.style.display = \"block\";\n            plus.innerHTML = '-';\n        }\n    });\n</script>\n\n</body>\n</html>"
+          }
+        },
+        "separator": {
+          "type": "separator",
+          "disabled": true,
+          "settings": {}
+        },
+        "similar_products_k3w3YP": {
+          "type": "similar_products",
+          "settings": {
+            "similar_products": "More Colors"
+          }
+        },
+        "size_option_6wGAjk": {
+          "type": "size_option",
+          "settings": {
+            "size_option_head": "Size",
+            "size_option": "0 (XS),2 (XS),4 (S),6 (S),8 (M),10 (M),12 (L),14 (L),16 (XL),18 (XL),16W (1X),18W (1X),20W (2X),22W (2X),24W (3X),26W (3X),28W (4X),30W (4X),32W (5X),34W (5X),36W (6X), Bespoke / Tailored",
+            "custom_size_heading": "",
+            "Shoulder": "Shoulder",
+            "optional_Shoulder": true,
+            "custom_shoulder_size": "11\", 12\", 13\", 14\", 15\", 16\", 17\", 18\", 19\", 20\", 21\", 22\", 23\", 24\", 25\"",
+            "Chest": "Chest",
+            "optional_Chest": true,
+            "custom_chest_size": "",
+            "Bust": "Bust",
+            "optional_Bust": false,
+            "custom_bust_size": "20\", 21\", 22\", 23\", 24\", 25\", 26\", 27\", 28\", 29\", 30\", 31\", 32\", 33\", 34\", 35\", 36\", 37\", 38\", 39\", 40\", 41\", 42\", 43\", 44\", 45\", 46\", 47\", 48\", 49\", 50\", 51\", 52\", 53\", 54\", 55\", 56\", 57\", 58\", 59\", 60\", 61\", 62\", 63\", 64\", 65\", 66\", 67\", 68\", 69\", 70\", 71\", 72\", 73\", 74\", 75\", 76\", 77\", 78\", 79\", 80\", 81\", 82\", 83\", 84\", 85\", 86\", 87\", 88\", 89\", 90\", 91\", 92\", 93\", 94\", 95\", 96\", 97\", 98\", 99\", 100\"",
+            "Under_Bust": "Under_Bust",
+            "optional_Under_Bust": true,
+            "custom_under_bust_size": "20\", 21\", 22\", 23\", 24\", 25\", 26\", 27\", 28\", 29\", 30\", 31\", 32\", 33\", 34\", 35\", 36\", 37\", 38\", 39\", 40\", 41\", 42\", 43\", 44\", 45\", 46\", 47\", 48\", 49\", 50\", 51\", 52\", 53\", 54\", 55\", 56\", 57\", 58\", 59\", 60\", 61\", 62\", 63\", 64\", 65\", 66\", 67\", 68\", 69\", 70\", 71\", 72\", 73\", 74\", 75\", 76\", 77\", 78\", 79\", 80\", 81\", 82\", 83\", 84\", 85\", 86\", 87\", 88\", 89\", 90\", 91\", 92\", 93\", 94\", 95\", 96\", 97\", 98\", 99\", 100\"",
+            "Waist": "Waist",
+            "optional_Waist": false,
+            "custom_waist_size": "20\", 21\", 22\", 23\", 24\", 25\", 26\", 27\", 28\", 29\", 30\", 31\", 32\", 33\", 34\", 35\", 36\", 37\", 38\", 39\", 40\", 41\", 42\", 43\", 44\", 45\", 46\", 47\", 48\", 49\", 50\", 51\", 52\", 53\", 54\", 55\", 56\", 57\", 58\", 59\", 60\", 61\", 62\", 63\", 64\", 65\", 66\", 67\", 68\", 69\", 70\", 71\", 72\", 73\", 74\", 75\", 76\", 77\", 78\", 79\", 80\", 81\", 82\", 83\", 84\", 85\", 86\", 87\", 88\", 89\", 90\", 91\", 92\", 93\", 94\", 95\", 96\", 97\", 98\", 99\", 100\"",
+            "Hip": "Hip",
+            "optional_Hip": false,
+            "custom_hip_size": "20\", 21\", 22\", 23\", 24\", 25\", 26\", 27\", 28\", 29\", 30\", 31\", 32\", 33\", 34\", 35\", 36\", 37\", 38\", 39\", 40\", 41\", 42\", 43\", 44\", 45\", 46\", 47\", 48\", 49\", 50\", 51\", 52\", 53\", 54\", 55\", 56\", 57\", 58\", 59\", 60\", 61\", 62\", 63\", 64\", 65\", 66\", 67\", 68\", 69\", 70\", 71\", 72\", 73\", 74\", 75\", 76\", 77\", 78\", 79\", 80\", 81\", 82\", 83\", 84\", 85\", 86\", 87\", 88\", 89\", 90\", 91\", 92\", 93\", 94\", 95\", 96\", 97\", 98\", 99\", 100\"",
+            "Thigh": "Thigh",
+            "optional_Thigh": true,
+            "custom_thigh_size": "",
+            "Total_Rise": "Total_Rise",
+            "optional_Total_Rise": true,
+            "custom_total_rise_size": "",
+            "Calf": "Calf",
+            "optional_Calf": true,
+            "custom_calf_size": "",
+            "Upper_Arm": "Upper_Arm",
+            "optional_Upper_Arm": true,
+            "custom_upper_arm_size": "9\", 10\", 11\", 12\", 13\", 14\", 15\", 16\", 17\", 18\", 19\", 20\", 21\", 22\", 23\", 24\", 25\", 26\", 27\", 28\", 29\", 30\", 31\", 32\", 33\", 34\", 35\", 36\", 37\", 38\", 39\", 40\", 41\", 42\", 43\", 44\", 45\", 46\", 47\", 48\", 49\", 50\", 51\", 52\", 53\", 54\", 55\", 56\", 57\", 58\", 59\", 60\", 61\", 62\", 63\", 64\", 65\", 66\", 67\", 68\", 69\", 70\", 71\", 72\", 73\", 74\", 75\", 76\", 77\", 78\", 79\", 80\", 81\", 82\", 83\", 84\", 85\", 86\", 87\", 88\", 89\", 90\", 91\", 92\", 93\", 94\", 95\", 96\", 97\", 98\", 99\", 100\"",
+            "Inseam": "Inseam",
+            "optional_Inseam": true,
+            "custom_inseam_size": "",
+            "Outseam": "Outseam",
+            "optional_Outseam": true,
+            "custom_outseam_size": "",
+            "HPS_to_Bust_Point": "HPS_to_Bust_Point",
+            "optional_HPS_to_Bust_Point": true,
+            "custom_hps_to_bust_point_size": "5\", 6\", 7\", 8\", 9\", 10\", 11\", 12\", 13\", 14\", 15\", 16\", 17\", 18\", 19\", 20\", 21\", 22\", 23\", 24\", 25\", 26\", 27\", 28\", 29\", 30\", 31\", 32\", 33\", 34\", 35\", 36\", 37\", 38\", 39\", 40\", 41\", 42\", 43\", 44\", 45\", 46\", 47\", 48\", 49\", 50\", 51\", 52\", 53\", 54\", 55\", 56\", 57\", 58\", 59\", 60\", 61\", 62\", 63\", 64\", 65\", 66\", 67\", 68\", 69\", 70\", 71\", 72\", 73\", 74\", 75\", 76\", 77\", 78\", 79\", 80\", 81\", 82\", 83\", 84\", 85\", 86\", 87\", 88\", 89\", 90\", 91\", 92\", 93\", 94\", 95\", 96\", 97\", 98\", 99\", 100\"",
+            "HPS_to_Waist": "HPS_to_Waist",
+            "optional_HPS_to_Waist": true,
+            "custom_hps_to_waist_size": "5\", 6\", 7\", 8\", 9\", 10\", 11\", 12\", 13\", 14\", 15\", 16\", 17\", 18\", 19\", 20\", 21\", 22\", 23\", 24\", 25\", 26\", 27\", 28\", 29\", 30\", 31\", 32\", 33\", 34\", 35\", 36\", 37\", 38\", 39\", 40\", 41\", 42\", 43\", 44\", 45\", 46\", 47\", 48\", 49\", 50\", 51\", 52\", 53\", 54\", 55\", 56\", 57\", 58\", 59\", 60\", 61\", 62\", 63\", 64\", 65\", 66\", 67\", 68\", 69\", 70\", 71\", 72\", 73\", 74\", 75\", 76\", 77\", 78\", 79\", 80\", 81\", 82\", 83\", 84\", 85\", 86\", 87\", 88\", 89\", 90\", 91\", 92\", 93\", 94\", 95\", 96\", 97\", 98\", 99\", 100\"",
+            "HPS_to_Knee": "HPS_to_Knee",
+            "optional_HPS_to_Knee": true,
+            "custom_hps_to_knee_size": "5\", 6\", 7\", 8\", 9\", 10\", 11\", 12\", 13\", 14\", 15\", 16\", 17\", 18\", 19\", 20\", 21\", 22\", 23\", 24\", 25\", 26\", 27\", 28\", 29\", 30\", 31\", 32\", 33\", 34\", 35\", 36\", 37\", 38\", 39\", 40\", 41\", 42\", 43\", 44\", 45\", 46\", 47\", 48\", 49\", 50\", 51\", 52\", 53\", 54\", 55\", 56\", 57\", 58\", 59\", 60\", 61\", 62\", 63\", 64\", 65\", 66\", 67\", 68\", 69\", 70\", 71\", 72\", 73\", 74\", 75\", 76\", 77\", 78\", 79\", 80\", 81\", 82\", 83\", 84\", 85\", 86\", 87\", 88\", 89\", 90\", 91\", 92\", 93\", 94\", 95\", 96\", 97\", 98\", 99\", 100\"",
+            "Height": "Height",
+            "Height_description": "(FEET & INCHES)",
+            "optional_Height": false,
+            "custom_height_size": "4'11\", 5'0\", 5'1\", 5'2\", 5'3\", 5'4\", 5'5\", 5'6\", 5'7\", 5'8\", 5'9\", 5'10\", 5'11\", 6'0\", 6'1\", 6'2\", 6'3"
+          }
+        },
+        "lining_CKmgmw": {
+          "type": "lining",
+          "settings": {
+            "switch_lining": true
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "variant_labels": true,
+            "picker_type": "dropdown",
+            "color_swatches": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "is_tab": false
+          }
+        },
+        "ffb0e71f-623b-43e8-8a1a-75bff124b0de": {
+          "type": "size_chart",
+          "settings": {
+            "size_chart": "all-size-chart-new"
+          }
+        },
+        "custom_FhhV9e": {
+          "type": "custom",
+          "settings": {
+            "code": "<div style=\"text-align:center;\">\n    <div onclick=\"openDialog()\" style=\"display:inline-block; cursor:pointer; margin:10px; margin-bottom:0;\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0738/9973/7371/files/tailoring.png?v=1729684144\" alt=\"Perfect Fit\" style=\"width:49px; height:auto;\">\n      <p style=\"margin-top:5px; margin-bottom:0; text-decoration: underline;\">Perfect Fit and remake Guarantee</p>\n    </div>\n</div>\n\n<!-- Dialog Box -->\n<div id=\"dialogBox\" style=\"display:none; position:fixed; left:50%; top:50%; transform:translate(-50%, -50%); width:300px; padding:20px; background-color:white; box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius:8px; z-index:1000;\">\n    <div style=\"position:absolute; top:10px; right:10px; cursor:pointer;\" onclick=\"closeDialog()\">&#10005;</div>\n    <p>Shop worry-free with free alterations or remakes until you're completely happy. We guarantee the best fit you've ever experienced—your satisfaction is our promise. Also, we'll provide a free return label to our US customers if they require a remake due to fit issues. Alter neckline, sleeves and length on all dresses, add margins for maternity wear, and much more. \n</div>\n\n<script>\nfunction openDialog() {\n    document.getElementById('dialogBox').style.display = 'block';\n}\n\nfunction closeDialog() {\n    document.getElementById('dialogBox').style.display = 'none';\n}\n</script>"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "surface_pickup_enable": false
+          }
+        },
+        "text_T6HNqC": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.fabric_name.value }}"
+          }
+        },
+        "text_tVXE8P": {
+          "type": "text",
+          "settings": {
+            "text": "(For custom size and/or custom style, a fee of $5 for dresses, and $7 for blazers per item will apply)"
+          }
+        },
+        "fa2848fd-b2e5-4d39-8186-43f7e3b5f0b3": {
+          "type": "custom",
+          "settings": {
+            "code": "<div style=\"text-align:center;\">\n\n  <!-- First row of features -->\n  <div style=\"display:flex; justify-content:space-around;\">\n    <div style=\"display:inline-block; margin:10px; margin-bottom:0;\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0738/9973/7371/files/Product_Page_Icon-4.svg?v=1697989073\" alt=\"Finest Fabrics\" style=\"width:49px; height:auto;\">\n      <p style=\"margin-top:5px; margin-bottom:0;\">Finest Fabrics</p>\n    </div>\n    <div style=\"display:inline-block; margin:10px; margin-bottom:0;\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0738/9973/7371/files/Product_Page_Icon-6.svg?v=1697989074\" alt=\"Made in India\" style=\"width:49px; height:auto;\">\n      <p style=\"margin-top:5px; margin-bottom:0;\">Made in India</p>\n    </div>\n  </div>\n\n  <!-- Second row of features -->\n  <div style=\"display:flex; justify-content:space-around; margin-top:5px;\">\n    <div style=\"display:inline-block; margin:10px; margin-bottom:0;\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0738/9973/7371/files/Product_Page_Icon-7.svg?v=1697989073\" alt=\"Artisan Made\" style=\"width:49px; height:auto;\">\n      <p style=\"margin-top:5px; margin-bottom:0;\">Artisan Made</p>\n    </div>\n    <div style=\"display:inline-block; margin:10px; margin-bottom:0;\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0738/9973/7371/files/Product_Page_Icon-1.svg?v=1697989073\" alt=\"Functional Pockets\" style=\"width:49px; height:auto;\">\n      <p style=\"margin-top:5px; margin-bottom:0;\">Functional Pockets</p>\n    </div>\n  </div>\n\n</div>"
+          }
+        },
+        "tab": {
+          "type": "tab",
+          "settings": {
+            "title": "Shipping and Returns",
+            "content": "<p>Products are shipped within 3-6 days of receiving the order, and delivery takes another 3-18 days depending on the shipping speed selected. </p><p></p><p>Returns can be done within 14 days of receiving the order. We provide a prepaid shipping label to our customers based in USA. </p>",
+            "page": ""
+          }
+        },
+        "contact": {
+          "type": "contact",
+          "settings": {
+            "title": "Ask a question",
+            "phone": false
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judgeme_preview_badge_product_page_4c320439",
+        "price",
+        "custom_DXEcp6",
+        "separator",
+        "similar_products_k3w3YP",
+        "size_option_6wGAjk",
+        "lining_CKmgmw",
+        "variant_picker",
+        "description",
+        "ffb0e71f-623b-43e8-8a1a-75bff124b0de",
+        "custom_FhhV9e",
+        "buy_buttons",
+        "text_T6HNqC",
+        "text_tVXE8P",
+        "fa2848fd-b2e5-4d39-8186-43f7e3b5f0b3",
+        "tab",
+        "contact",
+        "share"
+      ],
+      "settings": {
+        "sku_enable": true,
+        "image_position": "left",
+        "image_size": "large",
+        "product_zoom_enable": true,
+        "thumbnail_position": "beside",
+        "thumbnail_arrows": false,
+        "mobile_layout": "full",
+        "enable_video_looping": true,
+        "product_video_style": "muted",
+        "customize_style": false
+      }
+    },
+    "judgeme_section_review_widget_2362": {
+      "type": "apps",
+      "blocks": {
+        "judgeme_review_widget_4ac982e6": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judgeme_review_widget_4ac982e6"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "promo_custom_BRpFFQ": {
+      "type": "promo-custom",
+      "blocks": {
+        "advanced_fKYmC4": {
+          "type": "advanced",
+          "settings": {
+            "subheading": "{{ product.metafields.custom.craft.value.left_grid_top_subtitle.value }}",
+            "heading": "{{ product.metafields.custom.craft.value.left_grid_title.value }}",
+            "textarea": "",
+            "cta_text1": "",
+            "cta_link1": "",
+            "cta_text2": "",
+            "cta_link2": "",
+            "image": "{{ product.metafields.custom.craft.value.left_image_url.value }}",
+            "video_url": "",
+            "height": 500,
+            "text_size": 10,
+            "text_size2": 36,
+            "text_size3": 20,
+            "text_align": "vertical-center horizontal-center",
+            "focal_point": "center",
+            "color_accent": "rgba(0,0,0,0)",
+            "boxed": false,
+            "framed": false
+          }
+        },
+        "advanced_dB4eHV": {
+          "type": "advanced",
+          "settings": {
+            "subheading": "{{ product.metafields.custom.craft.value.middle_grid_top_subtitle.value }}",
+            "heading": "{{ product.metafields.custom.craft.value.middle_grid_title.value }}",
+            "textarea": "",
+            "cta_text1": "",
+            "cta_link1": "",
+            "cta_text2": "",
+            "cta_link2": "",
+            "image": "{{ product.metafields.custom.craft.value.middle_image_url.value }}",
+            "video_url": "",
+            "height": 500,
+            "text_size": 10,
+            "text_size2": 36,
+            "text_size3": 20,
+            "text_align": "vertical-center horizontal-center",
+            "focal_point": "center",
+            "color_accent": "rgba(0,0,0,0)",
+            "boxed": false,
+            "framed": false
+          }
+        },
+        "advanced_G7LkdU": {
+          "type": "advanced",
+          "settings": {
+            "subheading": "{{ product.metafields.custom.craft.value.right_grid_top_subtitle.value }}",
+            "heading": "{{ product.metafields.custom.craft.value.right_grid_title.value }}",
+            "textarea": "",
+            "cta_text1": "",
+            "cta_link1": "",
+            "cta_text2": "",
+            "cta_link2": "",
+            "image": "{{ product.metafields.custom.craft.value.right_image_url.value }}",
+            "video_url": "",
+            "height": 500,
+            "text_size": 10,
+            "text_size2": 36,
+            "text_size3": 10,
+            "text_align": "vertical-center horizontal-center",
+            "focal_point": "center",
+            "color_accent": "rgba(0,0,0,0)",
+            "boxed": false,
+            "framed": false
+          }
+        }
+      },
+      "block_order": [
+        "advanced_fKYmC4",
+        "advanced_dB4eHV",
+        "advanced_G7LkdU"
+      ],
+      "settings": {
+        "title": "",
+        "mobile_scrollable": true,
+        "view_all": false,
+        "divider": false
+      }
+    },
+    "sub": {
+      "type": "product-full-width",
+      "disabled": true,
+      "settings": {
+        "max_width": true
+      }
+    },
+    "background-image-text": {
+      "type": "background-image-text",
+      "disabled": true,
+      "settings": {
+        "subtitle": "Impressive",
+        "title": "About your brand",
+        "text": "<p>Pair large text with a full-width image to draw attention to an important detail of your brand or product line.</p>",
+        "button_label": "",
+        "button_link": "",
+        "focal_point": "center",
+        "layout": "left",
+        "height": 550,
+        "framed": false,
+        "parallax": false
+      }
+    },
+    "text-and-image": {
+      "type": "text-and-image",
+      "disabled": true,
+      "settings": {
+        "image_width": 700,
+        "subtitle": "",
+        "title": "About your brand",
+        "text": "<p>Pair large text with an image to tell a story, explain a detail about your product, or describe a new promotion.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "align_text": "left",
+        "layout": "right",
+        "divider": false
+      }
+    },
+    "text-and-image2": {
+      "type": "text-and-image",
+      "disabled": true,
+      "settings": {
+        "image_width": 700,
+        "subtitle": "",
+        "title": "About your brand",
+        "text": "<p>Pair large text with an image to tell a story, explain a detail about your product, or describe a new promotion.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "align_text": "left",
+        "layout": "left",
+        "divider": false
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonials-0": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
+            "author": "Author's name",
+            "author_info": "Los Angeles, CA"
+          }
+        },
+        "testimonials-1": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
+            "author": "Author's name",
+            "author_info": "Los Angeles, CA"
+          }
+        },
+        "testimonials-2": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
+            "author": "Author's name",
+            "author_info": "Los Angeles, CA"
+          }
+        }
+      },
+      "block_order": [
+        "testimonials-0",
+        "testimonials-1",
+        "testimonials-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Testimonials",
+        "align_text": "center",
+        "round_images": true,
+        "color_background": "#f9f9f9",
+        "color_text": "#1c1d1d"
+      }
+    },
+    "948920347929930626": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_snippet_widget_Ka7ecM": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_snippet_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_snippet_widget_Ka7ecM"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "show_product_recommendations": true,
+        "product_recommendations_heading": "You may also like",
+        "related_count": 5
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {
+        "recent_count": 5
+      }
+    },
+    "collection-return": {
+      "type": "collection-return",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "judgeme_section_review_widget_2362",
+    "promo_custom_BRpFFQ",
+    "sub",
+    "background-image-text",
+    "text-and-image",
+    "text-and-image2",
+    "testimonials",
+    "948920347929930626",
+    "product-recommendations",
+    "recently-viewed",
+    "collection-return"
+  ]
+}

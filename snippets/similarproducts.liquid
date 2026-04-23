@@ -1,0 +1,70 @@
+<style>
+label.single-option-radio__label {
+  text-transform: capitalize !important;
+  letter-spacing: 1px !important;
+  font-weight: 700;
+  font-size: 20px !important;
+}
+.product-vartiant-group {
+  position: relative;
+  display: block;
+  margin-bottom: 0;
+}
+.direct-vartiant-link {
+  display: inline-block;
+  position: relative;
+}
+.direct-vartiant-link .round {
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+}
+.grid-product__meta .direct-vartiant-link .round {
+  border-radius: 100%;
+  height: 20px;
+  width: 20px;
+  object-fit: cover;
+}
+.grid-view-item__link .round.activa {
+    border: 1px solid #222323;
+    padding: 2px;
+    height: 52px !important;
+    width: 52px !important;
+}
+.grid-product__meta .grid-view-item__link .round.activa {
+    border: 1px solid #222323;
+    padding: 2px;
+    height: 22px !important;
+    width: 22px !important;
+}
+</style>
+{% assign similarproducts = product.metafields.custom.similar_products.value %}
+{% if similarproducts %}
+  <div class="radio-wrapper">
+    <label class="single-option-radio__label">{{ block.settings.similar_products }}</label>
+  </div>
+  <div class="product-vartiant-group">
+    <div class="direct-vartiant-link">
+      {% if morehide %}
+        {% assign product_limit = 6 %}
+      {% else %}
+        {% assign product_limit = similarproducts.products.value.size %}
+      {% endif %}
+      {% for similarproduct in similarproducts.products.value limit: product_limit %}
+        <a class="grid-view-item__link grid-view-item__image-container" href="{{ similarproduct.url }}">
+          <img class="round {% if product.id == similarproduct.id %} activa {% endif %}" src="{{ similarproduct.images.last | image_url }}" height="auto" width="auto">
+        </a>
+      {% endfor %}
+      {% assign product_count = 0 %}
+      {% for similarproduct in similarproducts.products.value %}
+        {% assign product_count = product_count | plus: 1 %}
+      {% endfor %}
+      {% if morehide and product_count > 6 %}
+        <a class="show-more-link" href="{{ product.url }}">+{{ product_count | minus: 6 }}</a>
+      {% endif %}
+    </div>
+  </div>
+
+
+{% endif %}
