@@ -15,7 +15,6 @@
 {% endcomment %}
 
 <style>
-  /* --- Wrapper --- */
   #cf-widget {
     position: fixed;
     bottom: 28px;
@@ -28,7 +27,6 @@
     font-family: inherit;
   }
 
-  /* --- Popup panel --- */
   #cf-popup {
     flex-direction: column;
     gap: 10px;
@@ -49,7 +47,6 @@
     transform: translateY(0) scale(1);
   }
 
-  /* --- Popup header --- */
   .cf-header {
     font-size: 11px;
     font-weight: 700;
@@ -60,7 +57,6 @@
     margin-bottom: 2px;
   }
 
-  /* --- Each channel button --- */
   .cf-channel {
     display: flex;
     align-items: center;
@@ -89,7 +85,6 @@
   .cf-messenger { background: linear-gradient(135deg, #0084FF, #A033FF); }
   .cf-email     { background: #3D1A8C; }
 
-  /* --- FAB trigger --- */
   #cf-trigger {
     display: flex;
     align-items: center;
@@ -111,7 +106,6 @@
     transform: scale(1.07);
   }
 
-  /* Gold ring on hover */
   #cf-trigger::after {
     content: '';
     position: absolute;
@@ -132,7 +126,6 @@
     height: 26px;
   }
 
-  /* --- Mobile --- */
   @media (max-width: 480px) {
     #cf-widget {
       bottom: 18px;
@@ -147,7 +140,6 @@
 
 <div id="cf-widget" role="complementary" aria-label="Contact us">
 
-  <!-- Popup panel — HIDDEN by default via inline style -->
   <div
     id="cf-popup"
     role="dialog"
@@ -196,10 +188,6 @@
     </a>
   </div>
 
-  <!--
-    FAB trigger — uses <a> with WhatsApp fallback.
-    If JS fails, clicking still opens WhatsApp.
-  -->
   <a
     id="cf-trigger"
     href="https://wa.me/13479379613"
@@ -274,5 +262,32 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && isOpen) close();
     });
+
+    /*
+      Hide widget when cart drawer, search drawer, or modal is open.
+
+      Impulse 6 adds these classes to <html>:
+        - 'js-drawer-open'  → cart drawer or search drawer
+        - 'modal-open'      → modals (quick view, etc.)
+
+      We watch <html> for class changes and hide/show accordingly.
+      When hiding, we also close the popup so it doesn't reappear
+      in an open state when the widget returns.
+    */
+    var htmlEl = document.documentElement;
+
+    var observer = new MutationObserver(function () {
+      var overlayOpen = htmlEl.classList.contains('js-drawer-open')
+                     || htmlEl.classList.contains('modal-open');
+
+      if (overlayOpen) {
+        if (isOpen) close();
+        widget.style.display = 'none';
+      } else {
+        widget.style.display = '';
+      }
+    });
+
+    observer.observe(htmlEl, { attributes: true, attributeFilter: ['class'] });
   })();
 </script>
