@@ -42,60 +42,7 @@
         "full_width": true,
         "gutter_size": 0,
         "space_above": false,
-        "space_below": false
-      }
-    },
-    "featured_collections_My3BiV": {
-      "type": "featured-collections",
-      "blocks": {
-        "collection_wWMLLK": {
-          "type": "collection",
-          "settings": {
-            "collection": "handloom-dresses",
-            "title": "Dresses",
-            "focal_point": "center center"
-          }
-        },
-        "collection_mB6PB6": {
-          "type": "collection",
-          "settings": {
-            "collection": "handloom-blazers",
-            "title": "Blazers",
-            "focal_point": "center center"
-          }
-        },
-        "collection_bpTb9p": {
-          "type": "collection",
-          "settings": {
-            "collection": "tops",
-            "title": "Shirts",
-            "focal_point": "center center"
-          }
-        },
-        "collection_rneNBq": {
-          "type": "collection",
-          "settings": {
-            "collection": "handloom-cordsets-and-jumpsuits",
-            "title": "Co-ord Sets",
-            "focal_point": "center center"
-          }
-        }
-      },
-      "block_order": [
-        "collection_wWMLLK",
-        "collection_mB6PB6",
-        "collection_bpTb9p",
-        "collection_rneNBq"
-      ],
-      "custom_css": [
-        ".index-section {margin-bottom: 0px !important;}"
-      ],
-      "name": "t:sections.featured-collections.presets.collection_list.name",
-      "settings": {
-        "title": "",
-        "divider": false,
-        "per_row": 4,
-        "enable_gutter": true
+        "space_below": true
       }
     },
     "collection-header": {
@@ -184,33 +131,13 @@
         "full_width": false,
         "space_around": true
       }
-    },
-    "17785175209b0fc2ee": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_999b1cf_ihyxh7": {
-          "type": "ai_gen_block_999b1cf",
-          "settings": {
-            "image_1": "shopify://shop_images/dress.png",
-            "image_2": "shopify://shop_images/blazer.png",
-            "desktop_width_percent": 100
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_999b1cf_ihyxh7"
-      ],
-      "settings": {}
     }
   },
   "order": [
     "166281686642b9c15c",
-    "featured_collections_My3BiV",
     "collection-header",
     "16579974640a225bb9",
     "main-collection",
-    "1750268905e2c921fd",
-    "17785175209b0fc2ee"
+    "1750268905e2c921fd"
   ]
 }
