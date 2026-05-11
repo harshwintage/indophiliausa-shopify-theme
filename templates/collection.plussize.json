@@ -184,6 +184,24 @@
         "full_width": false,
         "space_around": true
       }
+    },
+    "17785175209b0fc2ee": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_999b1cf_ihyxh7": {
+          "type": "ai_gen_block_999b1cf",
+          "settings": {
+            "image_1": "shopify://shop_images/dress.png",
+            "image_2": "shopify://shop_images/blazer.png",
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_999b1cf_ihyxh7"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -192,6 +210,7 @@
     "collection-header",
     "16579974640a225bb9",
     "main-collection",
-    "1750268905e2c921fd"
+    "1750268905e2c921fd",
+    "17785175209b0fc2ee"
   ]
 }
