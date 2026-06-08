@@ -157,7 +157,7 @@
                 endif
               -%}
 
-              <div class="hero__image-wrapper{% if forloop.first %} hero__image-wrapper--eager{% endif %}{% unless hero_text %} hero__image-wrapper--no-overlay{% endunless %}">
+              <div class="hero__image-wrapper{% unless hero_text %} hero__image-wrapper--no-overlay{% endunless %}">
 
                 {%- if section.settings.parallax -%}
                   <div class="parallax-container">
@@ -165,44 +165,24 @@
                 {%- endif -%}
 
                   {%- if block.settings.image != blank -%}
-                    {%- if forloop.first -%}
-                      <img class="hero__image hero__image--{{ block.id }} hero__image--eager{% if has_mobile_image %} small--hide{% endif %}"
-                        src="{{ block.settings.image | img_url: '1600x' }}"
-                        srcset="{{ block.settings.image | img_url: '1000x' }} 1000w,
-                                {{ block.settings.image | img_url: '1600x' }} 1600w,
-                                {{ block.settings.image | img_url: '2200x' }} 2200w"
-                        sizes="100vw" fetchpriority="high" loading="eager" decoding="async"
-                        alt="{{ block.settings.image.alt | escape }}"
-                        style="object-position: {{ block.settings.focal_point }}">
-                      {%- if has_mobile_image -%}
-                        <img class="hero__image hero__image--{{ block.id }} hero__image--eager medium-up--hide"
-                          src="{{ block.settings.image_mobile | img_url: '800x' }}"
-                          srcset="{{ block.settings.image_mobile | img_url: '600x' }} 600w,
-                                  {{ block.settings.image_mobile | img_url: '900x' }} 900w,
-                                  {{ block.settings.image_mobile | img_url: '1200x' }} 1200w"
-                          sizes="100vw" fetchpriority="high" loading="eager" decoding="async"
-                          alt="{{ block.settings.image_mobile.alt | escape }}"
-                          style="object-position: {{ block.settings.focal_point }}">
-                      {%- endif -%}
-                    {%- else -%}
-                      {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-                      <img class="hero__image hero__image--{{ block.id }} lazyload{% if has_mobile_image %} small--hide{% endif %}"
-                        src="{{ block.settings.image | img_url: '300x' }}"
-                        data-src="{{ img_url }}"
-                        data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                    {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+                    <img class="hero__image hero__image--{{ block.id }} lazyload{% if has_mobile_image %} small--hide{% endif %}"
+                      src="{{ block.settings.image | img_url: '300x' }}"
+                      data-src="{{ img_url }}"
+                      data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                      data-sizes="auto"
+                      alt="{{ block.settings.image.alt | escape }}"
+                      style="object-position: {{ block.settings.focal_point }}">
+                    {%- if has_mobile_image -%}
+                      {%- assign img_url_mobile = block.settings.image_mobile | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                      <img class="hero__image hero__image--{{ block.id }} lazyload medium-up--hide"
+                        src="{{ block.settings.image_mobile | img_url: '300x' }}"
+                        data-src="{{ img_url_mobile }}"
+                        data-aspectratio="{{ block.settings.image_mobile.aspect_ratio }}"
                         data-sizes="auto"
-                        alt="{{ block.settings.image.alt | escape }}"
+                        alt="{{ block.settings.image_mobile.alt | escape }}"
                         style="object-position: {{ block.settings.focal_point }}">
-                      {%- if has_mobile_image -%}
-                        {%- assign img_url_mobile = block.settings.image_mobile | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-                        <img class="hero__image hero__image--{{ block.id }} lazyload medium-up--hide"
-                          src="{{ block.settings.image_mobile | img_url: '300x' }}"
-                          data-src="{{ img_url_mobile }}"
-                          data-aspectratio="{{ block.settings.image_mobile.aspect_ratio }}"
-                          data-sizes="auto"
-                          alt="{{ block.settings.image_mobile.alt | escape }}"
-                          style="object-position: {{ block.settings.focal_point }}">
-                      {%- endif -%}
                     {%- endif -%}
                     <noscript>
                       <img class="hero__image hero__image--{{ block.id }}"
