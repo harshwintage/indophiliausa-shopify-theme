@@ -1209,3 +1209,6 @@ img.tooltipIcon {
   }
 
 }
+
+.hero__image-wrapper--eager { opacity: 1 !important; transform: none !important; }
+.hero__image--eager { opacity: 1 !important; }
