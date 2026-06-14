@@ -1,7 +1,27 @@
 <div
   data-section-id="{{ section.id }}"
   data-section-type="slideshow-section"
-  {% if section.settings.parallax %}data-parallax="true"{% endif %}>
+  {% if section.settings.parallax %}data-parallax="true"{% endif %}
+  {% if section.index == 1 %}data-immediate-load{% endif %}>
+
+  {%- liquid
+    assign hero_priority = false
+    if section.index == 1
+      assign hero_priority = true
+    endif
+  -%}
+
+  {%- if hero_priority and section.blocks.size > 0 -%}
+    {%- assign first_block = section.blocks.first -%}
+    {%- if first_block.settings.image != blank -%}
+      <link rel="preload" as="image" href="{{ first_block.settings.image | image_url: width: 1800 }}" media="(min-width: 769px)" fetchpriority="high">
+    {%- endif -%}
+    {%- if first_block.settings.image_mobile != blank -%}
+      <link rel="preload" as="image" href="{{ first_block.settings.image_mobile | image_url: width: 800 }}" media="(max-width: 768px)" fetchpriority="high">
+    {%- elsif first_block.settings.image != blank -%}
+      <link rel="preload" as="image" href="{{ first_block.settings.image | image_url: width: 800 }}" media="(max-width: 768px)" fetchpriority="high">
+    {%- endif -%}
+  {%- endif -%}
 
   {%- if section.blocks.size > 0 -%}
     <div class="slideshow-wrapper">
@@ -69,7 +89,7 @@
 
       <div class="{% if natural_height %}hero-natural--{{ section.id }}{% endif %}{% if natural_mobile_height %} hero-natural-mobile--{{ section.id }}{% endif %}">
         <div id="Slideshow-{{ section.id }}"
-          class="hero hero--{{ section.settings.section_height }} hero--{{ section.id }} hero--mobile--{{ section.settings.mobile_height }} loading loading--delayed"
+          class="hero hero--{{ section.settings.section_height }} hero--{{ section.id }} hero--mobile--{{ section.settings.mobile_height }}{% if hero_priority %} hero--eager loaded{% else %} loading loading--delayed{% endif %}"
           {% if natural_height %}
             data-natural="true"
           {% endif %}
@@ -90,7 +110,7 @@
           {%- for block in section.blocks -%}
             <div
               {{ block.shopify_attributes }}
-              class="slideshow__slide slideshow__slide--{{ block.id }}"
+              class="slideshow__slide slideshow__slide--{{ block.id }}{% if forloop.first %} is-selected{% endif %}"
               data-index="{{ forloop.index0 }}"
               data-id="{{ block.id }}">
 
@@ -165,6 +185,26 @@
                 {%- endif -%}
 
                   {%- if block.settings.image != blank -%}
+                    {%- if hero_priority and forloop.first -%}
+                      <img class="hero__image hero__image--{{ block.id }} lazyloaded{% if has_mobile_image %} small--hide{% endif %}"
+                        src="{{ block.settings.image | image_url: width: 1800 }}"
+                        loading="eager"
+                        fetchpriority="high"
+                        width="{{ block.settings.image.width }}"
+                        height="{{ block.settings.image.height }}"
+                        alt="{{ block.settings.image.alt | escape }}"
+                        style="object-position: {{ block.settings.focal_point }}">
+                      {%- if has_mobile_image -%}
+                        <img class="hero__image hero__image--{{ block.id }} lazyloaded medium-up--hide"
+                          src="{{ block.settings.image_mobile | image_url: width: 800 }}"
+                          loading="eager"
+                          fetchpriority="high"
+                          width="{{ block.settings.image_mobile.width }}"
+                          height="{{ block.settings.image_mobile.height }}"
+                          alt="{{ block.settings.image_mobile.alt | escape }}"
+                          style="object-position: {{ block.settings.focal_point }}">
+                      {%- endif -%}
+                    {%- else -%}
                     {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
                     <img class="hero__image hero__image--{{ block.id }} lazyload{% if has_mobile_image %} small--hide{% endif %}"
@@ -183,6 +223,7 @@
                         data-sizes="auto"
                         alt="{{ block.settings.image_mobile.alt | escape }}"
                         style="object-position: {{ block.settings.focal_point }}">
+                    {%- endif -%}
                     {%- endif -%}
                     <noscript>
                       <img class="hero__image hero__image--{{ block.id }}"
