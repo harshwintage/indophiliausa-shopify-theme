@@ -12,5 +12,16 @@
     "market": "33692dd2-2327-4014-83ed-5cac3c43be29"
   },
   "parent": "product.json",
-  "sections": {}
+  "sections": {
+    "main": {
+      "settings": {},
+      "blocks": {
+        "tab": {
+          "settings": {
+            "content": "<p>We're dispatching orders within 4-7 calendar days of receiving them. Lately, standard shipping via IndiaPost and USPS is taking 8–11 calendar days, while our expedited partner UPS delivers in 2–4 days.<br/><br/>Returns can be made within 14 days of receiving the order. We provide a prepaid return shipping label for customers based in the USA.</p>"
+          }
+        }
+      }
+    }
+  }
 }

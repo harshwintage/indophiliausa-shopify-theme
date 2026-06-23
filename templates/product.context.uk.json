@@ -12,5 +12,16 @@
     "market": "uk"
   },
   "parent": "product.json",
-  "sections": {}
+  "sections": {
+    "main": {
+      "settings": {},
+      "blocks": {
+        "tab": {
+          "settings": {
+            "content": "<p>We're dispatching orders within 4-7 calendar days of receiving them. Lately, standard shipping via IndiaPost and Royal Mail is taking 4-7 calendar days.<br/><br/>We offer a fit guarantee to our UK customers. If the product doesn't fit you, we'll remake it without a charge. </p>"
+          }
+        }
+      }
+    }
+  }
 }
