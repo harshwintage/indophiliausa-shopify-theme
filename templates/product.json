@@ -118,10 +118,8 @@
         },
         "description": {
           "type": "description",
-          "disabled": true,
-          "settings": {
-            "is_tab": false
-          }
+          "repeater": "{{ product.metafields.shopify[\"color-pattern\"].value }}",
+          "settings": {}
         },
         "ffb0e71f-623b-43e8-8a1a-75bff124b0de": {
           "type": "size_chart",
