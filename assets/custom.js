@@ -246,7 +246,7 @@ $(document).ready(function(){
       el.classList.add('ship-row--flag');
       var pill = document.createElement('span');
       pill.className = 'ship-row__pill';
-      pill.textContent = 'UPDATED';
+      pill.textContent = 'UPDATED ' + new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }).toUpperCase();
       var icon = el.querySelector('.collapsible-trigger__icon, svg');
       icon ? icon.parentNode.insertBefore(pill, icon) : el.appendChild(pill);
     }
