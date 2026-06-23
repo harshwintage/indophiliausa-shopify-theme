@@ -232,3 +232,25 @@ $(document).ready(function(){
     $('.size_input').val(size_val);
   })
 });
+
+/* Shipping & Returns tab — attention highlight (header dot + pill) */
+(function () {
+  function flagShipTab() {
+    var rows = document.querySelectorAll('.collapsible-trigger');
+    for (var i = 0; i < rows.length; i++) {
+      var el = rows[i];
+      if (el.dataset.shipFlagged) continue;
+      var t = (el.textContent || '').toLowerCase();
+      if (t.indexOf('shipping') === -1 || t.indexOf('return') === -1) continue;
+      el.dataset.shipFlagged = '1';
+      el.classList.add('ship-row--flag');
+      var pill = document.createElement('span');
+      pill.className = 'ship-row__pill';
+      pill.textContent = 'UPDATED';
+      var icon = el.querySelector('.collapsible-trigger__icon, svg');
+      icon ? icon.parentNode.insertBefore(pill, icon) : el.appendChild(pill);
+    }
+  }
+  document.addEventListener('DOMContentLoaded', flagShipTab);
+  flagShipTab();
+})();
