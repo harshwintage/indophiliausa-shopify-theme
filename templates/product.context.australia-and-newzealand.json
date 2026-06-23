@@ -1,1 +1,27 @@
-{"parent":"product.json","context":{"market":"australia-and-newzealand"},"sections":{"main":{"blocks":{"tab":{"settings":{"content":"<p>Products are shipped within 3-6 days of receiving the order, and delivery takes another 3-18 days depending on the shipping speed selected. The orders are made in India by our chosen partner and shipped to your doorstep in AU \/ NZ<\/p><p><\/p><p>Returns can be done within 14 days of receiving the order. Our warehouse is in Wentworth Point, NSW 2127<\/p>"}}}}}}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "product.json",
+  "context": {
+    "market": "australia-and-newzealand"
+  },
+  "sections": {
+    "main": {
+      "settings": {},
+      "blocks": {
+        "tab": {
+          "settings": {
+            "content": "<p>We're dispatching orders within 7 calendar days of receiving them. Lately, standard shipping via IndiaPost and AU post thereafter is taking 8–11 calendar days.<br/><br/>Returns can be made within 14 days of receiving the order. We provide a prepaid return shipping label for customers based in the USA.</p><p></p><p>Returns can be done within 14 days of receiving the order. Our warehouse is in Wentworth Point, NSW 2127</p>"
+          }
+        }
+      }
+    }
+  }
+}

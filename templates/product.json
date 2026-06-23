@@ -156,7 +156,7 @@
           "type": "tab",
           "settings": {
             "title": "Shipping and Returns",
-            "content": "<p>Products are shipped within 3-6 days of receiving the order, and delivery takes another 3-18 days depending on the shipping speed selected. </p><p></p><p>Returns can be done within 14 days of receiving the order. We provide a prepaid shipping label to our customers based in USA. </p>",
+            "content": "<p>We're dispatching orders within 7 calendar days of receiving them. Lately, standard shipping via IndiaPost and USPS is taking 8–11 calendar days, while our expedited partner UPS delivers in 2–4 days.<br/><br/>Returns can be made within 14 days of receiving the order. We provide a prepaid return shipping label for customers based in the USA.</p>",
             "page": ""
           }
         },
@@ -212,7 +212,9 @@
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "review_data": "sample_data",
-            "max_width": 1200
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
           }
         }
       },
