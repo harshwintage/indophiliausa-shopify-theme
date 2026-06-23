@@ -109,8 +109,16 @@
             "color_swatches": false
           }
         },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "surface_pickup_enable": false
+          }
+        },
         "description": {
           "type": "description",
+          "disabled": true,
           "settings": {
             "is_tab": false
           }
@@ -125,13 +133,6 @@
           "type": "custom",
           "settings": {
             "code": "<div style=\"text-align:center;\">\n    <div onclick=\"openDialog()\" style=\"display:inline-block; cursor:pointer; margin:10px; margin-bottom:0;\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0738/9973/7371/files/tailoring.png?v=1729684144\" alt=\"Perfect Fit\" style=\"width:49px; height:auto;\">\n      <p style=\"margin-top:5px; margin-bottom:0; text-decoration: underline;\">Perfect Fit and remake Guarantee</p>\n    </div>\n</div>\n\n<!-- Dialog Box -->\n<div id=\"dialogBox\" style=\"display:none; position:fixed; left:50%; top:50%; transform:translate(-50%, -50%); width:300px; padding:20px; background-color:white; box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius:8px; z-index:1000;\">\n    <div style=\"position:absolute; top:10px; right:10px; cursor:pointer;\" onclick=\"closeDialog()\">&#10005;</div>\n    <p>Shop worry-free with free alterations or remakes until you're completely happy. We guarantee the best fit you've ever experienced—your satisfaction is our promise. Also, we'll provide a free return label to our US customers if they require a remake due to fit issues. Alter neckline, sleeves and length on all dresses, add margins for maternity wear, and much more. \n</div>\n\n<script>\nfunction openDialog() {\n    document.getElementById('dialogBox').style.display = 'block';\n}\n\nfunction closeDialog() {\n    document.getElementById('dialogBox').style.display = 'none';\n}\n</script>"
-          }
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": false,
-            "surface_pickup_enable": false
           }
         },
         "text_T6HNqC": {
@@ -181,10 +182,10 @@
         "size_option_6wGAjk",
         "lining_CKmgmw",
         "variant_picker",
+        "buy_buttons",
         "description",
         "ffb0e71f-623b-43e8-8a1a-75bff124b0de",
         "custom_FhhV9e",
-        "buy_buttons",
         "text_T6HNqC",
         "text_tVXE8P",
         "fa2848fd-b2e5-4d39-8186-43f7e3b5f0b3",
